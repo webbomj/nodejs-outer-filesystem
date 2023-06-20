@@ -6,8 +6,11 @@ import { getUserNameByArg } from "./helpers/getUserNameByArg.js";
 
 const userName = getUserNameByArg(process.argv[2]);
 console.log(`Welcome to the File Manager, ${userName}`);
-console.log("You are currently in path_to_working_directory");
+
 const rl = readline.createInterface({ input, output });
+// process.chdir(os.homedir());
+rl.write(process.chdir(os.homedir()));
+console.log(`You are currently in ${process.cwd()}`);
 
 //up, cd,  ls
 //cat, add , rn, cp, mv, rm
@@ -19,7 +22,7 @@ const homedir = os.homedir();
 
 rl.on("line", (line) => {
   console.log(line);
-  console.log("You are currently in path_to_working_directory");
+  console.log(`You are currently in ${process.cwd()}`);
 });
 
 rl.on("SIGINT", () => {
