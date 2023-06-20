@@ -7,6 +7,7 @@ import { getHash } from "./services/hash/hash.js";
 import { getOS } from "./services/os/getOS.js";
 import { compressFile } from "./services/zlib/compressFile.js";
 import { decompressFile } from "./services/zlib/decompressFile.js";
+import { up } from "./services/navigate/up.js";
 
 const userName = getUserNameByArg(process.argv[2]);
 console.log(`Welcome to the File Manager, ${userName}`);
@@ -17,15 +18,15 @@ console.log(`You are currently in ${process.cwd()}`);
 
 //up, cd,  ls
 //cat, add , rn, cp, mv, rm
-//hash
-//compress, decompress
 
 rl.on("line", async (line) => {
   const trimLine = line.trim();
   const [cmd, arg1, arg2] = trimLine.split(" ");
 
-  console.log(trimLine, cmd, arg1, arg2);
   switch (cmd) {
+    case "up":
+      up(arg1);
+      break;
     case "os":
       getOS(arg1);
       break;
