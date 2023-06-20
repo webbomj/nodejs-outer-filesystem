@@ -8,7 +8,7 @@ import { getUserNameByArg } from "./helpers/getUserNameByArg.js";
 import { getCPUS } from "./services/os/cpus.js";
 import { getHomedir } from "./services/os/homedir.js";
 import { getArch } from "./services/os/architecture.js";
-import { hashInterpret } from "./services/interpretator/hashInterpretator.js";
+import { getUserName } from "./services/os/username.js";
 import { getHash } from "./services/hash/hash.js";
 
 const userName = getUserNameByArg(process.argv[2]);
@@ -30,6 +30,7 @@ rl.on("line", async (line) => {
   console.log(trimLine, cmd, arg1, arg2);
   switch (cmd) {
     // case "os --EOL":
+    case "os":
     //   getEOL();
     //   break;
     // case "os --cpus":
@@ -40,6 +41,9 @@ rl.on("line", async (line) => {
     //   break;
     // case "os --architecture":
     //   getArch();
+    //   break;
+    // case "os --username":
+    //   getUserName();
     //   break;
     case "hash":
       await getHash(arg1);
