@@ -5,6 +5,8 @@ import readline from "readline/promises";
 import { getUserNameByArg } from "./helpers/getUserNameByArg.js";
 import { getHash } from "./services/hash/hash.js";
 import { getOS } from "./services/os/getOS.js";
+import { compressFile } from "./services/zlib/compressFile.js";
+import { decompressFile } from "./services/zlib/decompressFile.js";
 
 const userName = getUserNameByArg(process.argv[2]);
 console.log(`Welcome to the File Manager, ${userName}`);
@@ -29,6 +31,12 @@ rl.on("line", async (line) => {
       break;
     case "hash":
       await getHash(arg1);
+      break;
+    case "compress":
+      await compressFile(arg1, arg2);
+      break;
+    case "decompress":
+      await decompressFile(arg1, arg2);
       break;
     default:
       break;
