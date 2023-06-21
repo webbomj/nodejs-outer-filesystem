@@ -10,6 +10,7 @@ import { decompressFile } from "./services/zlib/decompressFile.js";
 import { up } from "./services/navigate/up.js";
 import { cd } from "./services/navigate/cd.js";
 import { ls } from "./services/navigate/ls.js";
+import { cat } from "./services/operations/cat.js";
 
 const userName = getUserNameByArg(process.argv[2]);
 console.log(`Welcome to the File Manager, ${userName}`);
@@ -27,13 +28,16 @@ rl.on("line", async (line) => {
 
   switch (cmd) {
     case "up":
-      up(arg1);
+      up();
       break;
     case "cd":
       cd(arg1);
       break;
     case "ls":
       await ls();
+      break;
+    case "cat":
+      await cat(arg1);
       break;
     case "os":
       getOS(arg1);
