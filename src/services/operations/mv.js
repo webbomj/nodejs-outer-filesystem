@@ -7,7 +7,7 @@ export const mv = async (pathToFile, pathToNewDir) => {
     await fs.access(pathToFile);
     await fs.access(pathToNewDir);
   } catch (e) {
-    console.log("Invalid input", [e]);
+    console.log("Invalid input");
     return;
   }
 
@@ -15,7 +15,7 @@ export const mv = async (pathToFile, pathToNewDir) => {
     const newPathToFile = path.join(pathToNewDir, path.parse(pathToFile).base);
     fs.writeFile(newPathToFile, "", (err) => {
       if (err) {
-        console.log("Invalid input");
+        console.log("Operation failed");
         return;
       }
     });

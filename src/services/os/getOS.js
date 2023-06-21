@@ -22,6 +22,7 @@ export const getOS = (param) => {
       getUserName();
       break;
     default:
+      console.log("Operation failed");
       break;
   }
 };

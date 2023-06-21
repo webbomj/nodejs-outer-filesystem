@@ -5,7 +5,7 @@ export const getHash = async (pathToFile) => {
   try {
     await fs.access(pathToFile, constants.R_OK);
   } catch (e) {
-    console.log("Operation failed");
+    console.log("Invalid input");
   }
 
   try {
@@ -16,6 +16,6 @@ export const getHash = async (pathToFile) => {
       .digest("hex");
     console.log(hash);
   } catch (e) {
-    console.log("Invalid input");
+    console.log("Operation failed");
   }
 };

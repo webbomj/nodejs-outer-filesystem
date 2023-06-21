@@ -8,6 +8,9 @@ export const up = () => {
   if (root === process.cwd()) {
     console.log("Invalid input");
   }
-
-  process.chdir(dir);
+  try {
+    process.chdir(dir);
+  } catch (e) {
+    console.log("Operation failed");
+  }
 };
