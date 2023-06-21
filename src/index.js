@@ -16,6 +16,7 @@ import { rn } from "./services/operations/rn.js";
 import { cp } from "./services/operations/cp.js";
 import { rm } from "./services/operations/rm.js";
 import { mv } from "./services/operations/mv.js";
+import { exit } from "./services/navigate/exit.js";
 
 const userName = getUserNameByArg(process.argv[2]);
 console.log(`Welcome to the File Manager, ${userName}`);
@@ -70,6 +71,9 @@ rl.on("line", async (line) => {
       break;
     case "decompress":
       await decompressFile(arg1, arg2);
+      break;
+    case ".exit":
+      exit(rl);
       break;
     default:
       break;
