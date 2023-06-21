@@ -11,6 +11,7 @@ import { up } from "./services/navigate/up.js";
 import { cd } from "./services/navigate/cd.js";
 import { ls } from "./services/navigate/ls.js";
 import { cat } from "./services/operations/cat.js";
+import { add } from "./services/operations/add.js";
 
 const userName = getUserNameByArg(process.argv[2]);
 console.log(`Welcome to the File Manager, ${userName}`);
@@ -38,6 +39,9 @@ rl.on("line", async (line) => {
       break;
     case "cat":
       await cat(arg1);
+      break;
+    case "add":
+      await add(arg1);
       break;
     case "os":
       getOS(arg1);

@@ -19,6 +19,6 @@ export const cat = async (pathToFile) => {
     const rs = (await open(pathToFile)).createReadStream();
     rs.pipe(process.stdout);
   } catch (e) {
-    console.log("Operation failed", [e]);
+    console.log("Operation failed");
   }
 };
