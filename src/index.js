@@ -15,6 +15,7 @@ import { add } from "./services/operations/add.js";
 import { rn } from "./services/operations/rn.js";
 import { cp } from "./services/operations/cp.js";
 import { rm } from "./services/operations/rm.js";
+import { mv } from "./services/operations/mv.js";
 
 const userName = getUserNameByArg(process.argv[2]);
 console.log(`Welcome to the File Manager, ${userName}`);
@@ -51,6 +52,9 @@ rl.on("line", async (line) => {
       break;
     case "cp":
       await cp(arg1, arg2);
+      break;
+    case "mv":
+      await mv(arg1, arg2);
       break;
     case "rm":
       await rm(arg1);
