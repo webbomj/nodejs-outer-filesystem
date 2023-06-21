@@ -15,6 +15,9 @@ export const rn = async (pathToFile, newFilename) => {
   }
 
   const newPathToFile = path.join(path.parse(pathToFile).dir, newFilename);
-
-  await fs.rename(pathToFile, newPathToFile);
+  try {
+    await fs.rename(pathToFile, newPathToFile);
+  } catch (e) {
+    console.log("Operation failed");
+  }
 };
